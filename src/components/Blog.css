@@ -1,0 +1,18 @@
+.custom-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .custom-list li {
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .custom-list li::before {
+    content: "\2192"; /* Unicode for right arrow */
+    position: absolute;
+    left: 0;
+    color: #666; /* Color of the arrow */
+    font-weight: bold; /* Adjust as necessary */
+  }
+  

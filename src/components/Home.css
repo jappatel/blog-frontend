@@ -1,0 +1,50 @@
+/* .div1-nav{
+    background-color: white;
+    display: flex;
+}
+.div2-nav img {
+    width: auto;
+    height: 10px;
+} */
+
+.divHome {
+    position: relative;
+    margin: 1%;
+    border-radius: 40px;
+  
+}
+
+.divHome::before {
+    border-radius: 40px;
+    content: "";
+    background-image: url(../../public/images/Banner.png);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3; /* Set opacity to 50% */
+}
+
+.divBlog{
+    position: relative;
+    margin: 1%;
+    border-radius: 40px;
+
+}
+.divBlog::before{
+    border-radius: 40px;
+    content: "";
+    background-image: url(../../public/images/banner2.png);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3; /* Set opacity to 50% */
+
+}

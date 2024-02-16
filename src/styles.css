@@ -1,0 +1,32 @@
+/* styles.css */
+
+/* TreeView container */
+.tree-view {
+    width: 300px; /* Set your desired width */
+    height: 400px; /* Set your desired height */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+  }
+  
+  /* Tree nodes */
+  .tree-node {
+    margin-bottom: 8px; /* Adjust margin between tree nodes */
+  }
+  
+  /* Node content */
+  .node-content {
+    padding: 8px; /* Adjust padding as needed */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Toggle icon */
+  .toggle-icon {
+    margin-right: 8px; /* Adjust margin between icon and node name */
+  }
+  
+  /* Child nodes */
+  .child-nodes {
+    margin-left: 16px; /* Adjust margin to create indentation for child nodes */
+  }
+  
