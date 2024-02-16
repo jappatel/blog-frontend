@@ -6,13 +6,20 @@ import Cookies from 'js-cookie';
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const authorName = Cookies.get('user_name');
-
+  
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   useEffect(() => {
+
+    
+    const authorName = Cookies.get('user_name');
+    console.log(authorName)
+    if (authorName) {
+      setAuthor(authorName);
+    }
+
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
@@ -25,6 +32,10 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  
+
+
 
   return (
     <div className="z-20 top-0 flex justify-between items-center bg-zinc-100 px-10 py-4 fixed w-screen">
