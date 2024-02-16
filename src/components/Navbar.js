@@ -14,12 +14,7 @@ const Navbar = () => {
   useEffect(() => {
 
     
-    const authorName = Cookies.get('user_name');
-    console.log(authorName)
-    if (authorName) {
-      setAuthor(authorName);
-    }
-
+   
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
@@ -32,6 +27,11 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  let authorName = Cookies.get('user_name');
+  console.log(authorName)
+ 
+
 
   
 
