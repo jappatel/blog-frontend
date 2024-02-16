@@ -18,7 +18,7 @@ const EditBlog = () => {
   useEffect(() => {
     const fetchPostInfo = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/editblog/${id}`);
+        const response = await axios.get(`https://quick-1k8t.onrender.com/api/editblog/${id}`);
         if (response.status === 200) {
           const post = response.data;
           setPostInfo(post);
@@ -47,7 +47,7 @@ const EditBlog = () => {
   const handleSave = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5000/api/editblog/${id}`, postInfo);
+      const response = await axios.put(`https://quick-1k8t.onrender.com/api/editblog/${id}`, postInfo);
       if (response.status === 200) {
         console.log('Blog data updated successfully');
         navigate('/');

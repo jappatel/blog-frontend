@@ -54,7 +54,7 @@ const AllBlogs = () => {
     useEffect(() => {
       window.scrollTo(0, 0);
       // Fetch blogs from the API with optional search term
-      axios.get(`http://localhost:5000/api/blogs?q=${searchTerm}`)
+      axios.get(`https://quick-1k8t.onrender.com/api/blogs?q=${searchTerm}`)
         .then(response => {
           let filteredBlogs = response.data;
           if (selectedSubject) {
@@ -162,7 +162,7 @@ const AllBlogs = () => {
  const handleBtnClick = async (selectedBlog) =>{
   navigate(`/blog/${selectedBlog._id}`,{state:{selectedBlog}})
 
-  const url = `http://localhost:5000/api/editblog/${selectedBlog._id}/views`;
+  const url = `https://quick-1k8t.onrender.com/api/editblog/${selectedBlog._id}/views`;
 
   try {
       const response = await fetch(url, {
