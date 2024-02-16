@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://quick-1k8t.onrender.com/api/login', {
+      const response = await fetch('https://quick-1k8t.onrender.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
