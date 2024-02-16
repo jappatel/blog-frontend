@@ -7,7 +7,7 @@ const Home_section1 = () => {
 
   useEffect(() => {
     // Fetch blogs from the API
-    axios.get('http://localhost:5000/api/blogs')
+    axios.get('https://quick-1k8t.onrender.com/api/blogs')
       .then(response => {
         // Filter blogs related to the technology subject
         const techBlogs = response.data.filter(blog => blog.subject === 'technology' ||  blog.subject === 'technology');
