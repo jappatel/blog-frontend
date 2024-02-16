@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const authorName = Cookies.get('user_name');
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -28,6 +31,7 @@ const Navbar = () => {
       <div className='flex items-center text-3xl'>
         <img className="w-10 mr-2" src="images/blog.png" alt="logo" />
         <span className="font-mono">QUICK</span>
+        <h1 className='text-lg ml-4 font-semibold text-red-600'>{authorName}</h1>
       </div>
 
       <div className='flex gap-6 text-xl'>
