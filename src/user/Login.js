@@ -30,9 +30,11 @@ const Login = () => {
         console.log('User ID:', userId); // Log user ID
         alert('Login successful');
         
+        // Calculate the number of seconds in one day
+           var oneDayInSeconds = 60 * 60 * 24;
 
         // Save user's name in a cookie
-        document.cookie = `user_name=${data.name}; max-age=900000`; // Adjust max-age as needed
+        document.cookie = `user_name=${data.name};  max-age=${oneDayInSeconds}`; // Adjust max-age as needed
       } else {
         const data = await response.json();
         console.error('Login failed:', data.message);
