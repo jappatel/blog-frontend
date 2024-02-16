@@ -8,7 +8,7 @@ const Home_section3 = () => {
 
   useEffect(() => {
     // Fetch blogs from the API
-    axios.get('http://localhost:5000/api/blogs')
+    axios.get('https://quick-1k8t.onrender.com/api/blogs')
       .then(response => {
         // Filter blogs related to the technology subject
         const foodBlog = response.data.filter(blog => blog.subject === 'Food' || blog.subject === 'food');
@@ -31,7 +31,7 @@ const Home_section3 = () => {
   const navigate = useNavigate();
 const handleBtnClick = async (selectedBlog) =>{
   navigate(`/blog/${selectedBlog._id}`,{state:{selectedBlog}})
-  const url = `http://localhost:5000/api/editblog/${selectedBlog._id}/views`;
+  const url = `https://quick-1k8t.onrender.com/api/editblog/${selectedBlog._id}/views`;
 
   try {
       const response = await fetch(url, {

@@ -6,7 +6,7 @@ const MostViewedBlogs = () => {
   const [Blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-  axios.get('http://localhost:5000/api/blogs')
+  axios.get('https://quick-1k8t.onrender.com/api/blogs')
     .then(response => {
 
         // Get the top 5 most viewed blogs
@@ -46,7 +46,7 @@ console.log(top5MostViewed);
   const navigate = useNavigate();
   const handleBtnClick = async (selectedBlog) => {
     navigate(`/blog/${selectedBlog._id}`, { state: { selectedBlog } });
-    const url = `http://localhost:5000/api/editblog/${selectedBlog._id}/views`;
+    const url = `https://quick-1k8t.onrender.com/api/editblog/${selectedBlog._id}/views`;
 
     try {
         const response = await fetch(url, {

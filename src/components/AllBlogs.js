@@ -12,7 +12,7 @@ const AllBlogs = () => {
     useEffect(() => {
       async function fetchCategories() {
         try {
-          const response = await fetch('http://localhost:5000/api/allblogs');
+          const response = await fetch('https://quick-1k8t.onrender.com/api/allblogs');
           const data = await response.json();
           setCategories(data.data);
           console.log(data);

@@ -7,7 +7,7 @@ const Home_section2 = () => {
 
   useEffect(() => {
     // Fetch blogs from the API
-    axios.get('http://localhost:5000/api/blogs')
+    axios.get('https://quick-1k8t.onrender.com/api/blogs')
       .then(response => {
         const Lifestyle = response.data.filter(blog => blog.subject === 'lifestyle' || blog.subject === 'Lifestyle'  || blog.subject === 'fitness' || blog.subject === 'Health' || blog.subject === 'Fitness' || blog.subject === 'health');
         setBlogs(Lifestyle.slice(0, 2)); // Assuming the response is an array of blog objects  .slice(0, 3)
@@ -37,7 +37,7 @@ const extractFirstImgTag = (htmlContent) => {
 const navigate = useNavigate();
 const handleBtnClick = async (selectedBlog) =>{
   navigate(`/blog/${selectedBlog._id}`,{state:{selectedBlog}})
-  const url = `http://localhost:5000/api/editblog/${selectedBlog._id}/views`;
+  const url = `https://quick-1k8t.onrender.com/api/editblog/${selectedBlog._id}/views`;
 
   try {
       const response = await fetch(url, {

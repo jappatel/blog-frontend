@@ -122,7 +122,7 @@ const handleDelete = async (blogId) => {
   const confirmDelete = window.confirm('Are you sure you want to delete this blog?');
   if (confirmDelete) {
     try {
-      await axios.delete(`http://localhost:5000/api/blogs/${blogId}`);
+      await axios.delete(`https://quick-1k8t.onrender.com/api/blogs/${blogId}`);
       // Remove the deleted blog from the state
       setBlogs(prevBlogs => prevBlogs.filter(blog => blog._id !== blogId));
     } catch (error) {
