@@ -12,6 +12,7 @@ const Forgot = () => {
         <div  className='mt-20 bg-white mb-16 h-96 p-10 rounded-lg shadow-xl '>
 
           <h1 className=' text-3xl text-gray-700 font-semibold mb-5 '>Forgot Password ?</h1>
+          <h1 className=' text-3xl text-gray-700 font-semibold mb-5 '>Forgot Password ?</h1>
 
           <form className='flex flex-col gap-2'>
             <label className='text-xl text-gray-600'>Email</label>
