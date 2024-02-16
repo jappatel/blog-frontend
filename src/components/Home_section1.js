@@ -33,7 +33,7 @@ const Home_section1 = () => {
   
  const handleBtnClick = async (selectedBlog) =>{
   navigate(`/blog/${selectedBlog._id}`,{state:{selectedBlog}})
-  const url = `http://localhost:5000/api/editblog/${selectedBlog._id}/views`;
+  const url = `https://quick-1k8t.onrender.com/api/editblog/${selectedBlog._id}/views`;
 
   try {
       const response = await fetch(url, {
