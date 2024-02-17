@@ -47,7 +47,7 @@ const Navbar = () => {
 
       <div className='flex gap-6 text-xl'>
         <Link className='hover:text-blue-700' to="/">Home</Link>
-        <Link className='hover:text-blue-700 text-red-600' to="/write">Write</Link>
+        {authorName && <Link className='hover:text-blue-700 text-red-600' to="/write">Write</Link>}
         <Link className='hover:text-blue-700' to="/myblogs">My Blogs</Link>
         <div className='relative' ref={dropdownRef}>
           <button onClick={toggleDropdown} className="text-xl hover:text-blue-700 focus:outline-none">
