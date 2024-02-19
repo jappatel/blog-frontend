@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [authorName, setAuthorName] = useState(null); // State to store author name obtained from cookies
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -38,6 +40,18 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const authorName = Cookies.get('user_name');
+    if (authorName) {
+      setAuthorName(authorName); // Set the authorName state if 'user_name' cookie is present
+    }
+
+    // Clean up function
+    return () => {
+      // Cleanup logic here if needed
+    };
+  }, []);
+
   return (
     <div className="z-20 top-0 flex justify-between items-center bg-zinc-100 px-10 py-4 fixed w-screen">
       <div className='flex items-center text-3xl'>
@@ -50,7 +64,7 @@ const Navbar = () => {
           <>
             <Link className='hover:text-blue-700' to="/">Home</Link>
             <Link className='hover:text-blue-700' to="/myblogs">My Blogs</Link>
-            <Link className='hover:text-blue-700' to="/write">Write</Link>
+            {authorName && <Link className='hover:text-blue-700' to="/write">Write</Link>} {/* Render only if authorName exists */}
           </>
         )}
         <div className='relative' ref={dropdownRef}>
@@ -63,14 +77,14 @@ const Navbar = () => {
                 <>
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/">Home</Link>
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/myblogs">My Blogs</Link>
-                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/write">Write</Link>
+                  {authorName && <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/write">Write</Link>} {/* Render only if authorName exists */}
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/userinfo">Info</Link>
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Logout</Link>
                 </>
               ) : (
                 <>
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/userinfo">Info</Link>
-                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Logout</Link>
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Login</Link>
                 </>
               )}
             </div>
