@@ -92,15 +92,31 @@ const WriteBlog = () => {
   //   console.log("Content:", content);
     
   // };
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   
 
   return (
     <>
 
-    <div className='flex mt-24'>
+    <div className={isSmallScreen ? 'mt-24' : 'flex mt-24'}>
 
 
-    <div className='w-1/3 px-11 py-16  '>
+    <div className='w-full md:w-1/3 px-11 py-16  '>
       <div className="border-2 border-gray-500 p-10 rounded-3xl">
         <h1 className='font-medium text-xl pb-10 font-sans  '>How to edit text in content ?</h1>
         <h1 className='font-normal text-base pb-10 font-mono'>Step 1: Write a word.</h1>
@@ -111,7 +127,7 @@ const WriteBlog = () => {
        
     </div>
 
-    <div className="w-2/3 justify-center items-center  h-full">
+    <div className="w-full md:w-2/3 justify-center items-center h-full">
       <div className=' bg-gray-50 p-8'>
         <form onSubmit={handleSubmit} className='flex flex-col'>
           <label htmlFor="title" className='text-3xl font-extralight mb-2'>Title</label>
@@ -126,7 +142,8 @@ const WriteBlog = () => {
           />
 
 
-         <div className='flex'> <label htmlFor="subject" className='text-3xl font-extralight mb-2 gap-4'>Subject </label>
+         <div  className={isSmallScreen ? '' : 'flex'}>
+          <label htmlFor="subject" className='text-3xl font-extralight mb-2 gap-4'>Subject </label>
           <input
             type="text"
             id="subject"
@@ -153,7 +170,7 @@ const WriteBlog = () => {
             className=" w-full px-4 py-2 mb-4 caret-red-600  border border-gray-300 rounded-md"
             
           />
-          </div>
+           </div>
 
           {/* <h1 className='text-3xl font-extralight mb-2'>Category</h1> */}
 
