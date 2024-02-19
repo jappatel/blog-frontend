@@ -50,10 +50,10 @@ const Home_section1 = () => {
 }
 
   return (
-   <>
+    <>
    
   
-   <div className=' m-10 flex  '>
+   <div className=' m-10  flex'>
    
       {technologyBlogs.map(blog => (
         

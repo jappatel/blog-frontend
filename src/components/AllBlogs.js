@@ -191,80 +191,60 @@ const AllBlogs = () => {
        
     </div>
 
-    <div className='  justify-start   flex flex-row '>
-            
+    <div className='flex flex-col md:flex-row justify-start'>
 
-            <div className="w-1/4 border-r-2 border-black border-opacity-20 pl-10    pt-8">
+    <div className="w-full md:w-1/4 border-r-0 md:border-r-2 border-black border-opacity-20 pl-4 md:pl-10 pt-8">
 
-                   <h1 className='font-semibold mb-5 cursor-pointer'  onClick={handleClearAll} >Clear all</h1>
-                   <h1 className='font-semibold text-lg mb-1'>Search</h1>
-                  
-            <input 
-              type="text" 
-              placeholder="Search Topic" 
-              className="px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              value={searchTerm}
-              onChange={(e) => handleSearchChange(e)} 
-              
-            />
-       
+<h1 className='font-semibold mb-5 cursor-pointer text-lg md:text-xl' onClick={handleClearAll}>Clear all</h1>
+<h1 className='font-semibold text-lg mb-1'>Search</h1>
 
-                   <div className='mt-10 text-lg cursor-pointer'>
-                        <h1 className='font-semibold'>Filter</h1>
-                        {/* <ul  >
-                           {categories.map(category => renderCategory(category))}
-                        </ul> */}
+<input 
+  type="text" 
+  placeholder="Search Topic" 
+  className="px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+  value={searchTerm}
+  onChange={(e) => handleSearchChange(e)} 
+/>
 
-                        <ul className='pt-5 ml-5'>
-                          
-                        <li className='hover:text-red-600 hover:text-xl' onClick={() => handleLiClick('technology')}>Technology</li>
-                    
-                        <li className='hover:text-red-600 hover:text-xl' onClick={() => handleLiClick('Lifestyle')}>Lifestyle</li>
-                         <li className='hover:text-red-600 hover:text-xl'  onClick={() => handleLiClick('health')}>Health and fitness</li>
-                         <li className='hover:text-red-600 hover:text-xl'  onClick={() => handleLiClick('Food')}>Food</li>
-                         <li className='hover:text-red-600 hover:text-xl' onClick={() => handleLiClick('Travel')}>Travel</li>
-                         <li className='hover:text-red-600 hover:text-xl' onClick={() => handleLiClick('Fashion')}>Fashion and Beauty</li>
-                         <li className='hover:text-red-600 hover:text-xl' onClick={() => handleLiClick('Education')}>Education</li>
+<div className='mt-10 text-lg cursor-pointer'>
+  <h1 className='font-semibold'>Filter</h1>
+  <ul className='pt-5 ml-2 md:ml-5'>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('technology')}>Technology</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('Lifestyle')}>Lifestyle</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('health')}>Health and fitness</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('Food')}>Food</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('Travel')}>Travel</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('Fashion')}>Fashion and Beauty</li>
+    <li className='hover:text-red-600 hover:text-xl text-sm md:text-lg' onClick={() => handleLiClick('Education')}>Education</li>
+  </ul>
+</div>
+
+</div>
 
 
-                         
-                        </ul>
-                   </div>
+<div className="w-full md:w-3/4 pl-10 grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 mr-20 ml-0 md:ml-10 mb-5">
+  {blogs.map(blog => (
+    <div className='bg-gray-50 hover:bg-gray-100 p-2 rounded-xl' key={blog._id}>
+      {extractFirstImgTag(blog.content).map((imgTag, index) => (
+        <div className='rounded-xl w-50 h-40 overflow-hidden border-2 border-black' key={index} dangerouslySetInnerHTML={{ __html: imgTag }} />
+      ))}
+      <h1 className='font-bold text-lg mt-2'>{blog.title}</h1>
+      {/* <h1 className='font-bold text-lg mt-2'>{blog.subject}</h1> */}
+      <h1 className='font-medium mt-1'>{blog.author}</h1>
+      <h2 className='mt-1'>{`${blog.createdAt.slice(5, 7)}-${blog.createdAt.slice(8, 10)}-${blog.createdAt.slice(0, 4)}`}</h2>
+      <button className='text-red-900 text-sm font-medium flex justify-center items-center' onClick={() => handleBtnClick(blog)}>
+        <p>READ MORE</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="-7.5 -7.5 45.00 45.00">
+          <path fill="#e4217f" d="M24.168,5.918L31.127,12.879c0.412,0.418,0.729,0.942,0.873,1.503L32,15c0,0.77-0.292,1.54-0.873,2.121L25.168,24.082c-0.426-0.436-0.9-0.907-1.406-1.422L30.42,16H9.051c-0.027-0.331-0.051-0.663-0.051-1s0.024-0.669,0.051-1H30.42l-6.658-6.661c0.506-0.514,0.979-0.985,1.406-1.422z"/>
+        </svg>
+      </button>
+    </div>
+  ))}
+</div>
 
-                   
 
-            </div>
-          
-            <div className="w-3/4 pl-10 grid grid-cols-3 gap-6 pt-10 mr-20 ml-10 mb-5">
-           
-            {blogs.map(blog => (
+</div>
 
-              <div className='bg-gray-50 hover:bg-gray-100 p-2  rounded-xl'>
-
-               {extractFirstImgTag(blog.content).map((imgTag, index) => (
-               <div className=' rounded-xl w-50 h-40 overflow-hidden  border-2 border-black' key={index} dangerouslySetInnerHTML={{ __html: imgTag }} />
-               ))}
-                <h1 className='font-bold text-lg mt-2'>{blog.title}</h1>
-                {/* <h1 className='font-bold text-lg mt-2'>{blog.subject}</h1> */}
-                <h1 className='font-medium mt-1'>{blog.author}</h1>
-                <h2 className='mt-1'>{`${blog.createdAt.slice(5, 7)}-${blog.createdAt.slice(8, 10)}-${blog.createdAt.slice(0, 4)}`}</h2>
-                <button className='text-red-900 text-sm font-medium flex justify-center items-center'  onClick={() => handleBtnClick(blog)}>
-                   <p>READ MORE</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="-7.5 -7.5 45.00 45.00">
-                  <path fill="#e4217f" d="M24.168,5.918L31.127,12.879c0.412,0.418,0.729,0.942,0.873,1.503L32,15c0,0.77-0.292,1.54-0.873,2.121L25.168,24.082c-0.426-0.436-0.9-0.907-1.406-1.422L30.42,16H9.051c-0.027-0.331-0.051-0.663-0.051-1s0.024-0.669,0.051-1H30.42l-6.658-6.661c0.506-0.514,0.979-0.985,1.406-1.422z"/>
-                 </svg>
-               </button>
-                
-              </div>
-
-            ))}
-            
-                  
-            </div>
-          
-            
-          
-      </div>
 
     </>
   )

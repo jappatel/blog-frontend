@@ -11,7 +11,7 @@ import Home_view from './Home_view';
 
 const Home = () => {
   return (
-    <div className='z-10 mt-24 ' >
+    <div className=' z-10 mt-24 ' >
       <Home_Nav />
       <div className='flex justify-center'>
        
@@ -25,42 +25,51 @@ const Home = () => {
         </div>
       </div>
 
+      <div className='flex lg:flex-row md:flex-row mx-24 justify-center border-b-2 border-b-black border-opacity-20 flex-col sm:flex-row'>
+      <div className='hidden sm:flex w-full md:w-1/2  flex-col space-x-5 mr-20'>
+  <div className='flex flex-col'>
+    <h1 className='font-light font-mono text-3xl ml-10 text-gray-700'>Technology</h1>
+    <Home_section1 />
+  </div>
+</div>
 
-      <div className='flex flex-row mx-24   justify-center border-b-2 border-b-black border-opacity-20'>
-        <div className='w-1/2 flex space-x-5  mr-20'>
-          <div className='flex flex-col'>
-            <h1 className='font-light font-mono text-3xl ml-10 text-gray-700'>Technology</h1>
-            <Home_section1 />
-          </div>
-        </div>
-        <div className='w-1/2 space-y-5 '>
+  <div className='w-full md:w-1/2 space-y-5'>
+    <div className='flex flex-col'>
+      <h1 className='font-light font-mono text-3xl text-gray-700 mb-10'>Health and fitness</h1>
+      <Home_section2 />
+    </div>
+  </div>
+</div>
 
-         <div className='flex flex-col'>
-            <h1 className='font-light font-mono text-3xl text-gray-700 mb-10'>Health and fitness</h1>
-            <Home_section2 />
-          </div>
-        </div>
-      </div>
-      <div className='flex space-x-2 mx-24   border-y-black border-b-2 border-opacity-20 '>
-        <div className='flex flex-col  '>
-          <h1 className='font-light font-mono text-3xl text-gray-700 mb-4 mt-5 '>Food</h1>
-          <Home_section3 />
-        </div>
-      </div>
-      <div className='flex '>
-        <div className='w-2/5 pl-24 py-16 gap-5 '>
-          <div className='flex flex-col '>
-            <h1 className='font-light font-mono text-3xl text-gray-700 pb-5'>Travel</h1>
-            <Home_section5 />
-          </div>
-        </div>
-        <div className='w-2/3'>
-          <div className='flex flex-col'>
-            <h1 className='font-light font-mono text-3xl text-gray-700 ml-10 mt-14'>Fashion and beauty</h1>
-            <Home_section4 />
-          </div>
-        </div>
-      </div>
+
+
+
+
+<div className='hidden sm:flex  space-x-2 mx-24 border-y-black border-b-2 border-opacity-20'>
+  <div className='flex flex-col'>
+    <h1 className='font-light font-mono text-3xl text-gray-700 mb-4 mt-5'>Food</h1>
+    <Home_section3 />
+  </div>
+</div>
+
+
+
+<div className='hidden sm:flex'>
+  <div className='w-2/5 pl-24 py-16 gap-5'>
+    <div className='flex flex-col'>
+      <h1 className='font-light font-mono text-3xl text-gray-700 pb-5'>Travel</h1>
+      <Home_section5 />
+    </div>
+  </div>
+  <div className='w-2/3'>
+    <div className='flex flex-col'>
+      <h1 className='font-light font-mono text-3xl text-gray-700 ml-10 mt-14'>Fashion and beauty</h1>
+      <Home_section4 />
+    </div>
+  </div>
+</div>
+
+
       <div className='flex justify-center opacity-85 hover:opacity-100'> {/* Wrapping button in a flex container and justifying its content to center */}
       <Link to="/allblogs">
           <button className='relative bg-gradient-to-r from-rose-400 to-fuchsia-400 p-2 rounded-2xl mb-5 font-normal'>Read More Blogs . . . </button>
