@@ -79,7 +79,7 @@ const Navbar = () => {
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/myblogs">My Blogs</Link>
                   {authorName && <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/write">Write</Link>} {/* Render only if authorName exists */}
                   <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/userinfo">Info</Link>
-                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Logout</Link>
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Login</Link>
                 </>
               ) : (
                 <>
