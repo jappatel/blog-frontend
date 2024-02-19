@@ -5,9 +5,24 @@ const SignUP = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic validation
+    if (!name || !email || !password) {
+      setError('Please fill out all fields');
+      return;
+    }
+
+    // Email format validation using regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
     try {
       const response = await fetch('https://quick-1k8t.onrender.com/api/signup', {
         method: 'POST',
@@ -17,14 +32,14 @@ const SignUP = () => {
         body: JSON.stringify({ name, email, password }),
       });
       if (response.ok) {
-        // Optionally, you can handle successful signup
         console.log('User signed up successfully');
-        alert(` Thank you ${name} ! for register with us ... `);
+        alert(`Thank you ${name} for registering with us!`);
       } else {
-        console.error('Failed to sign up');
+        setError('Failed to sign up');
       }
     } catch (error) {
       console.error('Error:', error);
+      setError('Error occurred while signing up');
     }
   };
 
@@ -33,6 +48,7 @@ const SignUP = () => {
       <div>
         <div className='mt-20 bg-white mb-16 h-96 p-10 rounded-lg shadow-xl '>
           <h1 className='text-3xl text-gray-700 font-semibold mb-5'>Sign up</h1>
+          {error && <p className="text-red-500 mb-2">{error}</p>}
           <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
             <label className='text-xl text-gray-600'>Name</label>
             <input
@@ -75,10 +91,3 @@ const SignUP = () => {
 };
 
 export default SignUP;
-
-
-
-
-
-
-
