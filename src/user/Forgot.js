@@ -63,14 +63,14 @@ const Forgot = () => {
                 className='border-2 border-red-500 border-opacity-25 rounded-lg'
                 placeholder='Enter your 6 digit OTP'
                 value={otp}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setOtp(e.target.value)}
               />
                 <input
                 type='text'
                 className='border-2 border-red-500 border-opacity-25 rounded-lg'
                 placeholder='New password'
                 value={newPassword}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
                   <button
                     className="mt-5 p-2 mb-5 rounded-xl border-2 border-red-900 bg-red-500 hover:bg-red-400"
