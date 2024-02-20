@@ -5,7 +5,6 @@ import Cookies from 'js-cookie';
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [authorName, setAuthorName] = useState(null); // State to store author name obtained from cookies
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -40,18 +39,9 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const authorName = Cookies.get('user_name');
-    if (authorName) {
-      setAuthorName(authorName); // Set the authorName state if 'user_name' cookie is present
-    }
+  let authorName = Cookies.get('user_name');
 
-    // Clean up function
-    return () => {
-      // Cleanup logic here if needed
-    };
-  }, []);
-
+ 
   return (
     <div className="z-20 top-0 flex justify-between items-center bg-zinc-100 px-10 py-4 fixed w-screen">
       <div className='flex items-center text-3xl'>
