@@ -54,21 +54,34 @@ const Forgot = () => {
                 Get Otp
               </button>
               {message && <p>{message}</p>}
-              {otp && (
-                <>
-                  <label className='text-xl text-gray-600'>OTP</label>
-                  <form className="max-w-sm mx-auto">
-                    {/* Your OTP input fields */}
-                  </form>
+              
+                  {/* <label className='text-xl text-gray-600'>{email}</label> */}
+                 
+
+                  <input
+                type='text'
+                className='border-2 border-red-500 border-opacity-25 rounded-lg'
+                placeholder='Enter your 6 digit OTP'
+                value={otp}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+                <input
+                type='text'
+                className='border-2 border-red-500 border-opacity-25 rounded-lg'
+                placeholder='New password'
+                value={newPassword}
+                onChange={(e) => setEmail(e.target.value)}
+              />
                   <button
                     className="mt-5 p-2 mb-5 rounded-xl border-2 border-red-900 bg-red-500 hover:bg-red-400"
                     onClick={handleResetPassword}
                   >
                     Reset
                   </button>
-                </>
-              )}
+                
             </form>
+
+
             <h1 className='font-normal text-gray-400 mb-3'>
               Go to login page <Link className="text-blue-500 underline" to="/login">Login</Link>
             </h1>
