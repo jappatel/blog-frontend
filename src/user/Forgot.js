@@ -11,7 +11,7 @@ const Forgot = () => {
   const handleGetOtp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://quicke.onrender/api/forgetpw', { email });
+      const response = await axios.post(' http://quick-1k8t.onrender.com/api/forgetpw', { email });
       setMessage(response.data.message);
     } catch (error) {
       console.error('Error fetching OTP:', error);
@@ -21,7 +21,7 @@ const Forgot = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://quicke.onrender/api/resetpw', {
+      const response = await axios.post(' http://quick-1k8t.onrender.com/api/resetpw', {
         email,
         otp,
         newPassword
