@@ -57,6 +57,8 @@ const Navbar = () => {
       <div className='flex items-center text-3xl'>
         <img className="w-10 mr-2" src="images/blog.png" alt="logo" />
         <span className="font-mono">QUICK</span>
+        <h1 className="text-xl font-sans ml-4 uppercase text-red-600 font-semibold" >{authorName}</h1>
+
       </div>
 
       <div className='flex gap-6 text-xl'>
